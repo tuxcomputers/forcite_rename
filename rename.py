@@ -1,8 +1,10 @@
 import os
 import shutil
 
-helmet_path = "F:/Forcite"
+helmet_drive = "E:"
 video_loc   = "D:/vids/forcite"
+
+helmet_path = helmet_drive+"/Forcite"
 
 directories = os.listdir( helmet_path )
 
@@ -27,4 +29,5 @@ for sub_folder in os.listdir(helmet_path):
             shutil.move(source, destination)
         os.rmdir(helmet_path+'/'+sub_folder)
 
+print ('All done')
         
