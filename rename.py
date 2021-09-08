@@ -2,7 +2,7 @@ import os
 import shutil
 
 helmet_drive = "E:"
-video_loc   = "D:/vids/forcite"
+video_loc   = "D:/harry/vids/forcite"
 
 helmet_path = helmet_drive+"/Forcite"
 
