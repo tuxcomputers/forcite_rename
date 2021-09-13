@@ -1,0 +1,13 @@
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\bin\Release\netcoreapp3.1\FileTransfer.exe
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\bin\Release\netcoreapp3.1\FileTransfer.deps.json
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\bin\Release\netcoreapp3.1\FileTransfer.runtimeconfig.json
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\bin\Release\netcoreapp3.1\FileTransfer.runtimeconfig.dev.json
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\bin\Release\netcoreapp3.1\FileTransfer.dll
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\bin\Release\netcoreapp3.1\FileTransfer.pdb
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\obj\Release\netcoreapp3.1\FileTransfer.csproj.AssemblyReference.cache
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\obj\Release\netcoreapp3.1\FileTransfer.AssemblyInfoInputs.cache
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\obj\Release\netcoreapp3.1\FileTransfer.AssemblyInfo.cs
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\obj\Release\netcoreapp3.1\FileTransfer.csproj.CoreCompileInputs.cache
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\obj\Release\netcoreapp3.1\FileTransfer.dll
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\obj\Release\netcoreapp3.1\FileTransfer.pdb
+D:\git-projects\forcite_rename\FileTransfer\FileTransfer\obj\Release\netcoreapp3.1\FileTransfer.genruntimeconfig.cache

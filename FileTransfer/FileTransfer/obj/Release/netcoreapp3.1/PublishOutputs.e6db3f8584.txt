@@ -1,0 +1,5 @@
+D:\temp\FileTransfer.exe
+D:\temp\FileTransfer.dll
+D:\temp\FileTransfer.deps.json
+D:\temp\FileTransfer.runtimeconfig.json
+D:\temp\FileTransfer.pdb
