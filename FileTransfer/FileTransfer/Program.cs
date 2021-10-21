@@ -64,7 +64,7 @@ namespace FileTransfer
                                 // Process each directory
                                 foreach (DirectoryInfo dir in myMoviesDir)
                                 {
-                                    Console.WriteLine(dir);
+                                    //Console.WriteLine(dir);
                                     // In the subdirectory grab all the file names
                                     FileInfo[] movies = dir.GetFiles();
                                     // Process each file
@@ -126,7 +126,7 @@ namespace FileTransfer
                                     
                                     // Do some clean up of empty directories
                                     movies = dir.GetFiles();
-                                    Console.WriteLine($"The number of files in the directory {movies} is {movies.Length}");
+                                    //Console.WriteLine($"The number of files in the directory {movies} is {movies.Length}");
                                     if (movies.Length == 0)
                                     {
                                         Console.WriteLine("Deleting the empty directory " + dir);
