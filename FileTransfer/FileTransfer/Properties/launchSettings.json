@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FileTransfer": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\harry\\vids\\forcite"
+    }
+  }
+}
