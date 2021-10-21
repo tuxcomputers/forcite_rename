@@ -50,7 +50,7 @@ namespace FileTransfer
                             if (user_input.ToLower() == "y")
                             {
                                 // Ask if they want to delete the file from the source location
-                                user_input = GetInput("Delete the files from the helmet after the copy? (y/n)");
+                                user_input = GetInput($"Delete the files from {forcite} after the copy? (y/n)");
                                 if (user_input.ToLower() == "y")
                                 {
                                     delete_file = true;
