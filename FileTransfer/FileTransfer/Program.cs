@@ -5,6 +5,7 @@ namespace FileTransfer
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             string[] drives = System.IO.Directory.GetLogicalDrives();
@@ -18,6 +19,7 @@ namespace FileTransfer
             string hR;
             string mI;
             string sC;
+            bool copy_file = false;
 
             foreach (string drive in drives)
             {
@@ -37,11 +39,12 @@ namespace FileTransfer
                         {
                             //Console.WriteLine(dir);
                             FileInfo[] movies = dir.GetFiles();
-                            foreach (FileInfo movie in movies)
+                            foreach (FileInfo helmet_movie in movies)
                             {
-                                //Console.WriteLine(movie);
-                                movieFileName = movie.Name;
-                                movieFullName = movie.FullName;
+                                //Console.WriteLine(helmet_movie);
+
+                                movieFileName = helmet_movie.Name;
+                                movieFullName = helmet_movie.FullName;
                                 yR = movieFileName.Substring(0, 4);
                                 mN = movieFileName.Substring(4, 2);
                                 dD = movieFileName.Substring(6, 2);
@@ -50,8 +53,27 @@ namespace FileTransfer
                                 sC = movieFileName.Substring(12, 6);
                                 movieNewName = curDir + "\\" + yR + "-" + mN + "-" + dD + "_" + hR + "." + mI + "." + sC + ".mp4";
                                 Console.WriteLine(movieFullName + " -> " + movieNewName);
-                                File.Copy(movieFullName, movieNewName, true);
-                                //;
+                                FileInfo drive_movie = new FileInfo(movieNewName);
+
+                                if (drive_movie.Exists)
+                                {
+                                    copy_file = true;
+                                    if (helmet_movie.Length == drive_movie.Length) copy_file = false;
+                                    //Console.WriteLine("The sizes are the same: " + (helmet_movie.Length == drive_movie.Length));
+                                } else
+                                {
+                                    copy_file = true;
+                                }
+                                //Console.WriteLine("The drive movie exists: " + );
+                                //Console.WriteLine($"Helmet size is {helmet_movie.Length}");
+                                //Console.WriteLine($"Drive  size is {drive_movie.Length}");
+                                //Console.WriteLine();
+                                if (copy_file)
+                                {
+                                    File.Copy(movieFullName, movieNewName, true);
+                                }
+                                
+
                             }
 
 
