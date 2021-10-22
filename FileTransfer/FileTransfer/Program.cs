@@ -1,10 +1,26 @@
 ﻿using System;
 using System.IO;
-
+using System.Collections.Generic;
+using System.Text;
+using System.Security.Cryptography;
 namespace FileTransfer
 {
     class Program
     {
+        private static string GetMD5HashFromFile(string fileName)
+        {
+            FileStream file = new FileStream(fileName, FileMode.Open);
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] retVal = md5.ComputeHash(file);
+            file.Close();
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < retVal.Length; i++)
+            {
+                sb.Append(retVal[i].ToString("x2"));
+            }
+            return sb.ToString();
+        }
         public static string GetInput(string prompt)
         {
             Console.WriteLine("{0}:", prompt);
@@ -21,6 +37,8 @@ namespace FileTransfer
             string movieFileName;
             string movieFullName;
             string movieNewName;
+            string helmet_hash;
+            string drive_hash;
             string yR;
             string mN;
             string dD;
@@ -55,7 +73,9 @@ namespace FileTransfer
                                 {
                                     delete_file = true;
                                 }
-                            
+
+                                Console.Clear();
+
                                 // Read the contents of the source dir
                                 DirectoryInfo forciteDir = new DirectoryInfo(forcite);
                                 // Read the directories within the source dir
@@ -87,16 +107,41 @@ namespace FileTransfer
                                         // Check if it exists
                                         if (drive_movie.Exists)
                                         {
+                                            Console.WriteLine();
                                             // If the size of the movies are the same, then skip the copy
                                             if (helmet_movie.Length == drive_movie.Length)
                                             {
-                                                Console.WriteLine("The file " + helmet_movie.Name + " and " + drive_movie.Name + " are the same size, skipping");
+                                                Console.WriteLine("The file " + helmet_movie.Name + " and " + drive_movie.Name + " are the same size");
                                                 copy_file = false;
+                                                user_input = GetInput("Compare the contents of the two files? (y/n)");
+                                                if (user_input.ToLower() == "y")
+                                                {
+                                                    helmet_hash = GetMD5HashFromFile(helmet_movie.FullName);
+                                                    drive_hash = GetMD5HashFromFile(drive_movie.FullName);
+                                                    if (helmet_hash == drive_hash)
+                                                    {
+                                                        Console.WriteLine("The contents are the same, skipping");
+                                                        copy_file = false;
+                                                    } else
+                                                    {
+                                                        user_input = GetInput("The contents are different, copy the source file? (y/n)");
+                                                        if (user_input.ToLower() == "y")
+                                                        {
+                                                            copy_file = true;
+                                                        }
+                                                    }
+                                                }
+
                                             } else
-                                            // Copy when they are different sizes
+                                            // Ask when the files are different sizes
                                             {
-                                                Console.WriteLine("The file " + helmet_movie.Name + " and " + drive_movie.Name + " are different sizes, copying again");
-                                                copy_file = true;
+                                                Console.WriteLine("The file " + helmet_movie.Name + " and " + drive_movie.Name + " are different sizes.");
+                                                user_input = GetInput($"Copy the file from {forcite} replacing the file? (y/n)");
+                                                if (user_input.ToLower() == "y")
+                                                {
+                                                    copy_file = true;
+                                                }
+                                                    
                                             }
                                         }
                                         // If it does not exist then copy it
